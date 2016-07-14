@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: RoadAccidentViewer, Configuration: Debug Win32 ------
+1>  RoadAccidentsViewer.c
+1>c:\users\sysadmin\documents\visual studio 2015\projects\roadaccidentviewer\roadaccidentviewer\roadaccidentsviewer.c(52): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+1>c:\users\sysadmin\documents\visual studio 2015\projects\roadaccidentviewer\roadaccidentviewer\roadaccidentsviewer.c(9): warning C4101: 'mP': unreferenced local variable
+1>  RoadAccidentViewer.vcxproj -> C:\Users\Sysadmin\Documents\Visual Studio 2015\Projects\RoadAccidentViewer\Debug\RoadAccidentViewer.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
