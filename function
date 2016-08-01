@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+extern int pedestrian[], cyclist[], motorcyclist[], vanPickup[], lorry[], bus[];
+
+void option1(void)
+{
+	int total=0,t=0,k=0;
+	float avaccident;
+	printf("\nYou have selected option 1.\nSelect the road user type you wish to see the average of.\n");
+    printf("|Pedestrians|(1)\n|Cyclists|(2)\n|Motor Cyclists|(3)\n|Van and Pick-up|(4)\n|Lorries|(5)\n|Bus|(6)\n\n");
+	scanf("%d",&t);
+	for (k = 0; k < 5; k++)
+		{
+			if (t == 1)
+			{
+				total = total + pedestrian[k];
+			}
+			else if (t == 2)
+			{
+				total = total + cyclist[k];
+			}
+			else if (t == 3)
+			{
+				total = total + motorcyclist[k];//f
+			}
+			else if (t == 4)
+			{
+				total = total + vanPickup[k];//i
+			}
+			else if (t == 5)
+			{
+				total = total + lorry[k];//q
+			}
+			else if (t == 6)
+			{
+				total = total + bus[k];
+			}
+			else if ((t < 1) || (t > 6))
+			{
+				printf("Whoops, You seem to have entered an incorrect value. Ignore the next statement please.\n");
+			}
+		}
+		avaccident = total / 5;
+		printf("\nAverage number of accidents for your selected road user type is %.2f.\n\n\n", avaccident);//End codestring for option 1 of 3
+}
+
+void option2(void)
+{
+	int k=0,t=0,total=0;
+	printf("\nYou have selected option 2. \nSelect a particular year which you would like to view the total accidents of.\n|2010|(1)   |2011|(2)   |2012|(3)   |2013|(4)   |2014|(5)\n\n");
+	scanf("%d", &t);
+		if((t>=1)&&(t<=5))
+		{
+			k = t - 1;
+			total = pedestrian[k] + cyclist[k] + motorcyclist[k] + vanPickup[k] + lorry[k] + bus[k];
+			printf("\nTotal accidents in 201%d is %d\n", k, total);//program by fiqrie, 1603360G
+		}
+		else if((1>t)||(t>5))
+		{
+			printf("You have entered an incorrect value.\n");
+		}//End codestring for option 2 out of 3
+		
+}
+
+void option3(void)
+{
+	int t=0,k=0,total=0;
+	printf("\nYou have selected option 3. \nSelect the year which you wish to compare amount of accidents by motorcyclists to all other road user types. \n|2010|(1)\n|2011|(2)\n|2012|(3)\n|2013|(4)\n|2014|(5)\n\n"); 
+	scanf("%d", &t);
+	k = t-1;
+	total = motorcyclist[k]-(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] );
+	printf("\nThere were %d more motorcycle accidents then all other accidents combined in the year 201%d.\nThere were %d motorcycle accidents that year,\n", total, k,motorcyclist[k]);
+}
+	
+void option4(void)
+{
+	int k=0,t=0,total=0,totMC=0;
+	float perMC=0.0;
+	for(k=0;k<3;k++)
+	{
+		total=total+(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] + motorcyclist[k]);
+		totMC=totMC+motorcyclist[k];
+	}
+	perMC=totMC*100/total;
+	printf("\nMotorcyclist accidents were %.2f%% of the total accidents of all road users from year 2010 to 2012.\n\n",perMC);
+}
