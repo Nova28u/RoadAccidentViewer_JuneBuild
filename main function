@@ -12,7 +12,8 @@ void main(void)
 {
 	char userinput;
 	do{
-	printf("A : Average number of accidents for a selected road user type over the five years.\nB : Total number of accidents for a selected year.\nC : The yearly difference between accidents of motor cyclists and total accidents of other road users.\nQ: Exit the program.\n\n");
+	printf("A : Average number of accidents for a selected road user type over the five years.\nB : Total number of accidents for a selected year.\nC : The yearly difference between accidents of motor cyclists and total accidents of other road users.\n");
+	printf("Q: Exit the program.\n\n");
 	scanf("%c",&userinput);
 	switch(userinput){
 
@@ -32,11 +33,13 @@ void main(void)
 		printf("\n\n");
 	    break;
 	case'd':case'D':
+		printf();//place menu for additional functions here
 		option4();
 		fflush(stdin);
 		break;
     case'q':case'Q':
 		printf("\n\n");
+		userinput='Q';
 	    break;
 	}
 	fflush(stdin);
