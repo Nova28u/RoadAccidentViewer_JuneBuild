@@ -1,87 +1,47 @@
 #include <stdio.h>
 //Program by Fiqrie, 1603360G
 
+void option1(void);
+void option2(void);
+void option3(void);
+void option4(void);
+
 extern int pedestrian[], cyclist[], motorcyclist[], vanPickup[], lorry[], bus[];
 
 void main(void)
 {
-	int total=0,o=0,k=0,t=0;
-	float avaccident, mP ,x=0;
-	printf("Hello! Welcome to the Road User's Accident Viewer program.\n\n");
-	printf("1 : Average number of accidents for a selected road user type over the five years.\n2 : Total number of accidents for a selected year.\n3 : The yearly difference between accidents of motor cyclists and total accidents of other road users.\n4 : Percentage of motorcyclist accidents to total accidents in a year.\n");
-	printf("Select an option using numbers 1,2,3,4 or 5.\n");
-	scanf_s("%d", &o);
+	char userinput;
+	do{
+	printf("A : Average number of accidents for a selected road user type over the five years.\nB : Total number of accidents for a selected year.\nC : The yearly difference between accidents of motor cyclists and total accidents of other road users.\nQ: Exit the program.\n\n");
+	scanf("%c",&userinput);
+	switch(userinput){
 
-	if (o == 1)
-	{
-		printf("You have selected option 1.\nSelect the road user type you wish to see the average of.\n");
-		printf("|Pedestrians|(1)   |Cyclists|(2)   |Motor Cyclists|(3)   |Van and Pick-up|(4)   |Lorries|(5)   |Bus|(6)\n\n");
-		scanf_s("%d", &t);
-		for (k = 0; k < 5; k++)
-		{
-			if (t == 1)
-			{
-				total = total + pedestrian[k];
-			}
-			else if (t == 2)
-			{
-				total = total + cyclist[k];
-			}
-			else if (t == 3)
-			{
-				total = total + motorcyclist[k];//f
-			}
-			else if (t == 4)
-			{
-				total = total + vanPickup[k];//i
-			}
-			else if (t == 5)
-			{
-				total = total + lorry[k];//q
-			}
-			else if (t == 6)
-			{
-				total = total + bus[k];
-			}
-			else if ((t < 1) || (t > 6))
-			{
-				printf("Whoops, You seem to have entered an incorrect value. Ignore the next statement please.\n");
-				break;
-			}
-		}
-		avaccident = total / 5;
-		printf("Average number of accidents for your selected road user type is %.2f.\n", avaccident);//End codestring for option 1 of 3
+    case'a':case'A':
+	    option1();
+	    fflush(stdin);
+		printf("\n\n");
+	    break;
+    case'b':case'B':
+	    option2();
+	    fflush(stdin);
+		printf("\n\n");
+	    break;
+    case'c':case'C':
+	    option3();
+	    fflush(stdin);
+		printf("\n\n");
+	    break;
+	case'd':case'D':
+		option4();
+		fflush(stdin);
+		break;
+    case'q':case'Q':
+		printf("\n\n");
+	    break;
 	}
-	else if (o == 2)
-	{
-		printf("You have selected option 2. \nSelect a particular year which you would like to view the total accidents of.\n|2010|(1)   |2011|(2)   |2012|(3)   |2013|(4)   |2014|(5)\n");
-		scanf_s("%d", &t);
-		if((t>=1)&&(t<=5))
-		{
-			k = t - 1;
-			total = pedestrian[k] + cyclist[k] + motorcyclist[k] + vanPickup[k] + lorry[k] + bus[k];
-			printf("Total accidents in 201%d is %d\n", k, total);//program by fiqrie, 1603360G
-		}
-		else if((1>t)||(t>5))
-		{
-			printf("You have entered an incorrect value.\n");
-		}//End codestring for option 2 out of 3
+	fflush(stdin);
+	}while(userinput!='Q');
 		
 
-	}
-	else if (o == 3)
-	{
-		printf("You have selected option 3. \nSelect the year which you wish to compare amount of accidents by motorcyclists to all other road user types. \n |2010|(1)   |2011|(2)   |2012|(3)   |2013|(4)   |2014|(5)\n");
-		//Add in prompt to select here. 
-		scanf_s("%d", &t);
-		k = t-1;
-		total = motorcyclist[k]-(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] - motorcyclist[k]);
-	
-		printf("There were %d more motorcycle accidents then all other accidents combined in the year 201%d.\nThere were %d motorcycle accidents that year,\n", total, k,motorcyclist[k]);
-	}
-	else if ((o < 1) || (o > 3))
-	{
-		printf("You entered an incorrect value.\n");
-	}
 	
 }
