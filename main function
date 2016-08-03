@@ -5,46 +5,44 @@ void option1(void);
 void option2(void);
 void option3(void);
 void option4(void);
+void spacegen(void)
+{
+	printf("\n\n");
+}
 
 extern int pedestrian[], cyclist[], motorcyclist[], vanPickup[], lorry[], bus[];
 
 void main(void)
 {
 	char userinput;
-	do{
-	printf("A : Average number of accidents for a selected road user type over the five years.\nB : Total number of accidents for a selected year.\nC : The yearly difference between accidents of motor cyclists and total accidents of other road users.\n");
-	printf("Q: Exit the program.\n\n");
-	scanf("%c",&userinput);
-	switch(userinput){
+	do {
+		printf("A : Average number of accidents for a selected road user type over the five years.\nB : Total number of accidents for a selected year.\nC : The yearly difference between accidents of motor cyclists and total accidents of other road users.\n");
+		printf("Q: Exit the program.\n\n");
+		userinput = getchar();
+		switch (userinput) {
+		    case'a':case'A':
+			    option1();
+				spacegen();
+			    break;
+		    case'b':case'B':
+				option2();
+				spacegen();
+			    break;
+		    case'c':case'C':
+		 	    option3();
+				spacegen();
+			    break;
+		    case'd':case'D':
+			    printf("Displaying percentage of motorcyclist accidents with respect to yearly total among road users from year 2010-2012.");
+			    option4();
+				spacegen();
+			    break;
+		    case'q':case'Q':
+			    userinput = 'Q';
+			    break;
+		}
+	} while (userinput != 'Q');
 
-    case'a':case'A':
-	    option1();
-	    fflush(stdin);
-		printf("\n\n");
-	    break;
-    case'b':case'B':
-	    option2();
-	    fflush(stdin);
-		printf("\n\n");
-	    break;
-    case'c':case'C':
-	    option3();
-	    fflush(stdin);
-		printf("\n\n");
-	    break;
-	case'd':case'D':
-		printf();//place menu for additional functions here
-		option4();
-		fflush(stdin);
-		break;
-    case'q':case'Q':
-		printf("\n\n");
-		userinput='Q';
-	    break;
-	}
-	fflush(stdin);
-	}while(userinput!='Q');
-		
 
-	
+
 }
