@@ -41,6 +41,7 @@ void option1(void)
 				printf("Whoops, You seem to have entered an incorrect value. Ignore the next statement please.\n");
 			}
 		}
+	    fflush(stdin);
 		avaccident = total / 5;
 		printf("\n---------------------------------------------\nAverage number of accidents for your selected road user type is %.2f.\n---------------------------------------------\n\n", avaccident);//End codestring for option 1 of 3
 }
@@ -59,7 +60,9 @@ void option2(void)
 		else if((1>t)||(t>5))
 		{
 			printf("You have entered an incorrect value.\n");
-		}//End codestring for option 2 out of 3
+		}
+	fflush(stdin);	
+		//End codestring for option 2 out of 3
 		
 }
 
@@ -71,6 +74,7 @@ void option3(void)
 	k = t-1;
 	total = motorcyclist[k]-(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] );
 	printf("\n---------------------------------------------\nThere were %d more motorcycle accidents then all other accidents combined in the year 201%d.\nThere were %d motorcycle accidents that year,\n---------------------------------------------\n\n", total, k,motorcyclist[k]);
+	fflush(stdin);
 }//End codestring for option 3 out of 4
 	
 void option4(void)
@@ -86,5 +90,37 @@ void option4(void)
 	printf("\n---------------------------------------------\nMotorcyclist accidents were %.2f%% of the total accidents of all road users from year 2010 to 2012.\n---------------------------------------------\n\n",perMC);
 }
 
-void option5(void)
+void arrayfinder(void)
+{
+	extern int yr10acc[],yr11acc[],yr12acc[],yr13acc[],yr14acc[];
+	int j=0,k=0,min=100000,indexMin=0,arrayName=0;
+	for(j=0;j<7;j++)
+		if(j=0)
+		{
+			if(yr10acc[k]<min);
+		        min=yr10acc[k];
+		        arrayName=k;
+		        indexMin=0;
+		}
+		else if(j=1)
+		{
+			if(yr11acc[k],min)
+				min=yr11acc[k];
+	            arrayName=k;
+		        indexMin=0;
+		}
 
+	
+
+
+
+
+	
+	
+}
+void option5(void)
+{
+	int k=0,min=100000,indexMin=0,arrayName=0;
+	for(k=0;k<6;k++)
+	{
+		arrayfinder();
