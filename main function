@@ -1,126 +1,71 @@
 #include <stdio.h>
 
-extern int pedestrian[], cyclist[], motorcyclist[], vanPickup[], lorry[], bus[];
-
-
-void option1(void)
+void option1(void);
+void option2(void);
+void option3(void);
+void option4(void);
+void option5(void);
+void spacegen(void)
 {
-	int total=0,t=0,k=0;
-	float avaccident;
-	printf("\nYou have selected option A.\nSelect the road user type you wish to see the average of.\n");
-    printf("(1)|Pedestrians|\n(2)|Cyclists|\n(3)|Motor Cyclists|\n(4)|Van and Pick-up|\n(5)|Lorries|\n(6)|Bus|\n\n");
-	scanf("%d",&t);
-	for (k = 0; k < 5; k++)
-		{
-			if (t == 1)
-			{
-				total = total + pedestrian[k];
-			}
-			else if (t == 2)
-			{
-				total = total + cyclist[k];
-			}
-			else if (t == 3)
-			{
-				total = total + motorcyclist[k];//f
-			}
-			else if (t == 4)
-			{
-				total = total + vanPickup[k];//i
-			}
-			else if (t == 5)
-			{
-				total = total + lorry[k];//q
-			}
-			else if (t == 6)
-			{
-				total = total + bus[k];
-			}
-			else if ((t < 1) || (t > 6))
-			{
-				printf("Whoops, You seem to have entered an incorrect value. Ignore the next statement please.\n");
-			}
-		}
-	    fflush(stdin);
-		avaccident = total / 5;
-		printf("\n---------------------------------------------\nAverage number of accidents for your selected road user type is %.2f.\n---------------------------------------------\n\n", avaccident);//End codestring for option 1 of 3
+	printf("\n\n");
 }
 
-void option2(void)
+void main(void)
 {
-	int k=0,t=0,total=0;
-	printf("\nYou have selected option B. \nSelect a particular year which you would like to view the total accidents of.\n(1)|2010|\n(2)|2011|\n(3)|2012|\n(4)|2013|\n(5)|2014|\n\n");
-	scanf("%d", &t);
-		if((t>=1)&&(t<=5))
-		{
-			k = t - 1;
-			total = pedestrian[k] + cyclist[k] + motorcyclist[k] + vanPickup[k] + lorry[k] + bus[k];
-			printf("\n---------------------------------------------\nTotal accidents in 201%d is %d\n---------------------------------------------\n\n", k, total);//program by fiqrie, 1603360G
-		}
-		else if((1>t)||(t>5))
-		{
-			printf("You have entered an incorrect value.\n");
-		}
-	fflush(stdin);	
-		//End codestring for option 2 out of 3
-		
-}
+	char userinput;
+	int k=0;
 
-void option3(void)
-{
-	int t=0,k=0,total=0;
-	printf("\nYou have selected option C. \nSelect the year which you wish to compare amount of accidents by motorcyclists to all other road user types. \n|2010|(1)\n|2011|(2)\n|2012|(3)\n|2013|(4)\n|2014|(5)\n\n"); 
-	scanf("%d", &t);
-	k = t-1;
-	total = motorcyclist[k]-(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] );
-	printf("\n---------------------------------------------\nThere were %d more motorcycle accidents then all other accidents combined in the year 201%d.\nThere were %d motorcycle accidents that year,\n---------------------------------------------\n\n", total, k,motorcyclist[k]);
-	fflush(stdin);
-}//End codestring for option 3 out of 4
-	
-void option4(void)
-{
-	int k=0,t=0,total=0,totMC=0;
-	float perMC=0.0;
-	for(k=0;k<3;k++)
+	do
 	{
-		total=total+(pedestrian[k] + cyclist[k]  + vanPickup[k] + lorry[k] + bus[k] + motorcyclist[k]);
-		totMC=totMC+motorcyclist[k];
-	}
-	perMC=totMC*100.0/total;
-	printf("\n---------------------------------------------\nMotorcyclist accidents were %.2f%% of the total accidents of all road users from year 2010 to 2012.\n---------------------------------------------\n\n",perMC);
-}
+		printf("Hello! Welcome to the Road Accidents Viewer 1.");
+		spacegen();
+		printf("Please select an option to view.");
+		spacegen();
+		printf("(A):Average number of accidents for a selected road user type over the five     years.");//spaces are to make the word 'years' appear nicely on the display
+		spacegen();
+		printf("(B):Total number of accidents for a selected year.");
+		spacegen();
+		printf("(C):The yearly differences between accidents of motorcyclists and total         accidents of other road users.");//spaces are to make the word 'accidents' appear nicely on the display
+		spacegen();
+		printf("(D):Display percentage of motorcyclists accidents with respect to yearly        total among road users from year 2010-2012.");//spaces are to make the word 'total' appear nicely on the display
+		spacegen();
+		printf("(Q):Exit program.");
+		spacegen();
 
-void arrayfinder(void)
-{
-	extern int yr10acc[],yr11acc[],yr12acc[],yr13acc[],yr14acc[];
-	int j=0,k=0,min=100000,indexMin=0,arrayName=0;
-	for(j=0;j<7;j++)
-		if(j=0)
+
+		userinput=getchar();
+
+
+		switch(userinput)
 		{
-			if(yr10acc[k]<min);
-		        min=yr10acc[k];
-		        arrayName=k;
-		        indexMin=0;
+		case'A': case 'a':
+			option1();
+			spacegen();
+			break;
+		case'b':case 'B':
+			option2();
+			spacegen();
+			break;
+		case'c': case'C':
+			option3();
+			spacegen();
+			break;
+		case'd':case 'D':
+			option4();
+			spacegen();
+			break;
+		case'e':case 'E':
+			option5();
+			spacegen();
+			break;
+		case'q': case'Q':
+			userinput='Q';
+			spacegen();
+			break;
+		default: 
+			printf("You have entered an invalid character.");
+			spacegen();
+			break;
 		}
-		else if(j=1)
-		{
-			if(yr11acc[k],min)
-				min=yr11acc[k];
-	            arrayName=k;
-		        indexMin=0;
-		}
-
-	
-
-
-
-
-	
-	
+	}while(userinput!='Q');
 }
-void option5(void)
-{
-	int k=0,min=100000,indexMin=0,arrayName=0;
-	for(k=0;k<6;k++)
-	{
-		arrayfinder();
