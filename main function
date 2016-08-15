@@ -5,67 +5,78 @@ void option2(void);
 void option3(void);
 void option4(void);
 void option5(void);
-void spacegen(void)
+void spacegen(void)//For placing line breaks without repeating myself.
 {
 	printf("\n\n");
+	fflush(stdin);
+}
+void ioflush(void)//For general sanitisation
+{
+	fflush(stdin);
+	fflush(stdout);
 }
 
 void main(void)
 {
 	char userinput;
-	int k=0;
+	int k = 0;
 
 	do
 	{
-		printf("Hello! Welcome to the Road Accidents Viewer 1.");
+		puts("Hello! Welcome to the Road Accidents Viewer 1.");
 		spacegen();
-		printf("Please select an option to view.");
+		puts("Please select an option to view.");
 		spacegen();
-		printf("(A):Average number of accidents for a selected road user type over the five     years.");//spaces are to make the word 'years' appear nicely on the display
+		puts("(A):Average number of accidents for a selected road user \ntype over the five years.");//\n are to make the words appear nicely on the display
 		spacegen();
-		printf("(B):Total number of accidents for a selected year.");
+		puts("(B):Total number of accidents for a selected year.");
 		spacegen();
-		printf("(C):The yearly differences between accidents of motorcyclists and total         accidents of other road users.");//spaces are to make the word 'accidents' appear nicely on the display
+		puts("(C):The yearly differences between accidents of motorcyclists \nand total accidents of other road users.");//\n are to make the words appear nicely on the display
 		spacegen();
-		printf("(D):Display percentage of motorcyclists accidents with respect to yearly        total among road users from year 2010-2012.");//spaces are to make the word 'total' appear nicely on the display
+		puts("(D):Display percentage of motorcyclists accidents with respect \nto yearly total among road users from year 2010-2012.");//\n are to make the words appear nicely on the display
 		spacegen();
-		printf("(Q):Exit program.");
+		puts("(E):Indicate the type of road users witg lowest number of \naccidents in each year and its corresponding number of accidents.");
 		spacegen();
+		puts("(Q):Exit program.");
 
+		userinput = getchar();
 
-		userinput=getchar();
-
-
-		switch(userinput)
+		switch (userinput)//Switch case prevents unwanted outputs.
 		{
 		case'A': case 'a':
 			option1();
+			ioflush();
 			spacegen();
 			break;
 		case'b':case 'B':
 			option2();
+			ioflush();
 			spacegen();
 			break;
 		case'c': case'C':
 			option3();
+			ioflush();
 			spacegen();
 			break;
 		case'd':case 'D':
 			option4();
+			ioflush();
 			spacegen();
 			break;
 		case'e':case 'E':
 			option5();
+			ioflush();
 			spacegen();
 			break;
 		case'q': case'Q':
-			userinput='Q';
+			userinput = 'Q';
 			spacegen();
 			break;
-		default: 
-			printf("You have entered an invalid character.");
+			
+		default:
+			printf("You have entered an invalid character. %c.",userinput);//Error message
 			spacegen();
 			break;
 		}
-	}while(userinput!='Q');
+	} while (userinput != 'Q');//Q causes program to exit
 }
